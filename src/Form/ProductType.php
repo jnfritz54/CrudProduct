@@ -15,10 +15,10 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name',TextType::class,['label' => 'Nom du produit'])
-            ->add('reference',TextType::class,['label' => 'Référence'])
-            ->add('description',TextareaType::class,['label' => 'Description','empty_data' => '',])
-            ->add('price',NumberType::class,['label' => 'Prix','scale'=>2])
+            ->add('name', TextType::class, ['label' => 'Nom du produit'])
+            ->add('reference', TextType::class, ['label' => 'Référence'])
+            ->add('description', TextareaType::class, ['label' => 'Description', 'empty_data' => '',])
+            ->add('price', NumberType::class, ['label' => 'Prix', 'scale' => 2])
         ;
     }
 

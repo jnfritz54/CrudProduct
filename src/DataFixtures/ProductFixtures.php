@@ -21,20 +21,21 @@ class ProductFixtures extends Fixture
         $manager->flush();
     }
 
-    private function createRandomName():string
+    private function createRandomName(): string
     {
-        $string = $this->generateRandomString(10,'lowercase');
-        return join(" ",str_split(ucfirst($string),5));
+        $string = $this->generateRandomString(10, 'lowercase');
+        return join(" ", str_split(ucfirst($string), 5));
     }
 
-    private function createRandomReference():string
+    private function createRandomReference(): string
     {
         $numericPart = random_int(1000, 5000);
-        return $numericPart.'-'.$this->generateRandomString(5);
+        return $numericPart . '-' . $this->generateRandomString(5);
     }
 
-    private function generateRandomString($length = 10, string $mode = 'alnum') {
-        switch ($mode){
+    private function generateRandomString(int $length = 10, string $mode = 'alnum'): string
+    {
+        switch ($mode) {
             case 'lowercase':
                 $characters = 'abcdefghijklmnopqrstuvwxyz';
                 break;
@@ -43,7 +44,7 @@ class ProductFixtures extends Fixture
                 $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
                 break;
         }
-        
+
         $charactersLength = strlen($characters);
         $randomString = '';
         for ($i = 0; $i < $length; $i++) {

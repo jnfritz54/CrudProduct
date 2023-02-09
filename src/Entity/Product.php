@@ -20,7 +20,7 @@ class Product
     #[ORM\Column(length: 150)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 50,unique: true)]
+    #[ORM\Column(length: 50, unique: true)]
     private ?string $reference = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
