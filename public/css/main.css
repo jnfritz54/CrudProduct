@@ -57,17 +57,44 @@ main table{ margin-bottom: 3%;}
     padding:5px;
     background-color: #cfc191;
 }
-.btn-rouge{
-    cursor:pointer;
+
+.btn-rouge {
+    cursor: pointer;
     color: white;
     border-radius: 8px;
     background-color: #FC6E51;
-    padding:5px;
+    padding: 5px;
     font-weight: bold;
 }
-.table{
+
+.table {
     border-spacing: 5px;
+    width: 100%;
 }
-.bold{
+
+.bold {
     font-weight: bold;
+}
+
+.flash {
+    width: content-box;
+    padding-left: 10%;
+    margin-bottom: 15px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.flash-error {
+    background-color: #B0413E;
+    color: white;
+}
+
+.flash-notice {
+    background-color: #93c5fd;
+    color: white;
+}
+
+.flash-warning {
+    background-color: #FC6E51;
+    color: white;
 }

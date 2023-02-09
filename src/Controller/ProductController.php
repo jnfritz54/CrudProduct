@@ -15,7 +15,10 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/')]
 class ProductController extends AbstractController
 {
-    #[Route('/', name: 'ctrl_product_index', methods: ['GET','POST'])]
+    /*
+     * Index & Product list
+     */
+    #[Route('/', name: 'ctrl_product_index', methods: ['GET', 'POST'])]
     public function index(ProductRepository $productRepository, Request $request): Response
     {
         $form = $this->createForm(ProductSearchType::class);
@@ -27,13 +30,17 @@ class ProductController extends AbstractController
              we can analyse the search data here before searching only in references if a valid reference format is provided by the user.
             (In that case we'll also have to validate that format when creating/editing a product) */
             $products = $productRepository->searchOnNameAndReference($data['search']);
-        }else{
+        } else {
             $products = $productRepository->findAll();
         }
         return $this->render('product/index.html.twig', [
             'products' => $products,
         ]);
     }
+
+    /*
+     * method called by twig templates to render search form
+     */
     #[Route('/search', name: 'ctrl_product_search', methods: ['GET'])]
     public function search(): Response
     {
@@ -41,6 +48,9 @@ class ProductController extends AbstractController
         return $this->render('product/_part_search.html.twig', ['form' => $form->createView()]);
     }
 
+    /*
+     * Create page
+     */
     #[Route('/new', name: 'ctrl_product_new', methods: ['GET', 'POST'])]
     public function newProduct(Request $request, ProductRepository $productRepository): Response
     {
@@ -60,7 +70,10 @@ class ProductController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/show', name: 'ctrl_product_show', requirements: ["id"=>"\d+"], methods: ['GET'])]
+    /*
+     * detailed product view page
+     */
+    #[Route('/{id}/show', name: 'ctrl_product_show', requirements: ["id" => "\d+"], methods: ['GET'])]
     public function showProduct(Product $product): Response
     {
         return $this->render('product/show.html.twig', [
@@ -68,7 +81,10 @@ class ProductController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'ctrl_product_edit', requirements: ["id"=>"\d+"], methods: ['GET', 'POST'])]
+    /*
+     * edit product page
+     */
+    #[Route('/{id}/edit', name: 'ctrl_product_edit', requirements: ["id" => "\d+"], methods: ['GET', 'POST'])]
     public function editProduct(Request $request, Product $product, ProductRepository $productRepository): Response
     {
         $form = $this->createForm(ProductType::class, $product);
@@ -86,11 +102,18 @@ class ProductController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'ctrl_product_delete', requirements: ["id"=>"\d+"], methods: ['POST'])]
+    /*
+     * delete a product permanently
+     */
+    #[Route('/{id}/delete', name: 'ctrl_product_delete', requirements: ["id" => "\d+"], methods: ['POST'])]
     public function deleteProduct(Request $request, Product $product, ProductRepository $productRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$product->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $product->getId(), (string)$request->request->get('_token'))) {
             $productRepository->remove($product, true);
+            $this->addFlash('notice', "Le produit a bien été supprimé");
+        } else {
+            $this->addFlash('error',
+                "Erreur: Le produit n'a pu être supprimé. (Impossible de procéder à la validation CSRF) Merci de réessayer après avoir rafraîchit la page");
         }
 
         return $this->redirectToRoute('ctrl_product_index', [], Response::HTTP_SEE_OTHER);
