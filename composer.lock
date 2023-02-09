@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e7f74ad00c2ef07171955391c73f7052",
+    "content-hash": "d9d14ded537355fd797b9cbb4c98f8a4",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -7952,6 +7952,185 @@
                 "source": "https://github.com/phar-io/version/tree/3.2.1"
             },
             "time": "2022-02-21T01:04:05+00:00"
+        },
+        {
+            "name": "phpspec/prophecy",
+            "version": "v1.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpspec/prophecy.git",
+                "reference": "15873c65b207b07765dbc3c95d20fdf4a320cbe2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/15873c65b207b07765dbc3c95d20fdf4a320cbe2",
+                "reference": "15873c65b207b07765dbc3c95d20fdf4a320cbe2",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/instantiator": "^1.2 || ^2.0",
+                "php": "^7.2 || 8.0.* || 8.1.* || 8.2.*",
+                "phpdocumentor/reflection-docblock": "^5.2",
+                "sebastian/comparator": "^3.0 || ^4.0",
+                "sebastian/recursion-context": "^3.0 || ^4.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "^6.0 || ^7.0",
+                "phpstan/phpstan": "^1.9",
+                "phpunit/phpunit": "^8.0 || ^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Prophecy\\": "src/Prophecy"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                },
+                {
+                    "name": "Marcello Duarte",
+                    "email": "marcello.duarte@gmail.com"
+                }
+            ],
+            "description": "Highly opinionated mocking framework for PHP 5.3+",
+            "homepage": "https://github.com/phpspec/prophecy",
+            "keywords": [
+                "Double",
+                "Dummy",
+                "fake",
+                "mock",
+                "spy",
+                "stub"
+            ],
+            "support": {
+                "issues": "https://github.com/phpspec/prophecy/issues",
+                "source": "https://github.com/phpspec/prophecy/tree/v1.17.0"
+            },
+            "time": "2023-02-02T15:41:36+00:00"
+        },
+        {
+            "name": "phpspec/prophecy-phpunit",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpspec/prophecy-phpunit.git",
+                "reference": "2d7a9df55f257d2cba9b1d0c0963a54960657177"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpspec/prophecy-phpunit/zipball/2d7a9df55f257d2cba9b1d0c0963a54960657177",
+                "reference": "2d7a9df55f257d2cba9b1d0c0963a54960657177",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3 || ^8",
+                "phpspec/prophecy": "^1.3",
+                "phpunit/phpunit": "^9.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Prophecy\\PhpUnit\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                }
+            ],
+            "description": "Integrating the Prophecy mocking library in PHPUnit test cases",
+            "homepage": "http://phpspec.net",
+            "keywords": [
+                "phpunit",
+                "prophecy"
+            ],
+            "support": {
+                "issues": "https://github.com/phpspec/prophecy-phpunit/issues",
+                "source": "https://github.com/phpspec/prophecy-phpunit/tree/v2.0.1"
+            },
+            "time": "2020-07-09T08:33:42+00:00"
+        },
+        {
+            "name": "phpstan/phpstan",
+            "version": "1.9.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan.git",
+                "reference": "204e459e7822f2c586463029f5ecec31bb45a1f2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/204e459e7822f2c586463029f5ecec31bb45a1f2",
+                "reference": "204e459e7822f2c586463029f5ecec31bb45a1f2",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2|^8.0"
+            },
+            "conflict": {
+                "phpstan/phpstan-shim": "*"
+            },
+            "bin": [
+                "phpstan",
+                "phpstan.phar"
+            ],
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHPStan - PHP Static Analysis Tool",
+            "keywords": [
+                "dev",
+                "static analysis"
+            ],
+            "support": {
+                "issues": "https://github.com/phpstan/phpstan/issues",
+                "source": "https://github.com/phpstan/phpstan/tree/1.9.17"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/ondrejmirtes",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/phpstan",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpstan/phpstan",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2023-02-08T12:25:00+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

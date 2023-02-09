@@ -39,6 +39,10 @@ class ProductRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @param string $string string to be searched for
+     * @return array< Product>
+     */
     public function searchOnNameAndReference(string $string): array
     {
         return $this->createQueryBuilder('p')
@@ -52,5 +56,4 @@ class ProductRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-
 }
