@@ -112,8 +112,10 @@ class ProductController extends AbstractController
             $productRepository->remove($product, true);
             $this->addFlash('notice', "Le produit a bien été supprimé");
         } else {
-            $this->addFlash('error',
-                "Erreur: Le produit n'a pu être supprimé. (Impossible de procéder à la validation CSRF) Merci de réessayer après avoir rafraîchit la page");
+            $this->addFlash(
+                'error',
+                "Erreur: Le produit n'a pu être supprimé. (Impossible de procéder à la validation CSRF) Merci de réessayer après avoir rafraîchit la page"
+            );
         }
 
         return $this->redirectToRoute('ctrl_product_index', [], Response::HTTP_SEE_OTHER);
