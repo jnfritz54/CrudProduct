@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier la fiche produit{% endblock %}
+{% block body_title %}Modifier la fiche produit{% endblock %}
+
+{% block body %}
+
+    {{ include('product/_part_form.html.twig', {'button_label': 'Modifier'}) }}
+
+{% endblock %}

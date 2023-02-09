@@ -1,0 +1,10 @@
+{{ form_start(form) }}
+<div style="display: table;width: 80%;">
+    <div class="row"><div class="cell">{{ form_label(form.name) }}</div><div class="cell">{{ form_widget(form.name) }}</div></div>
+    <div class="row"><div class="cell">{{ form_label(form.reference) }}</div><div class="cell">{{ form_widget(form.reference) }}</div></div>
+    <div class="row"><div class="cell">{{ form_label(form.description) }}</div><div class="cell">{{ form_widget(form.description) }}</div></div>
+    <div class="row"><div class="cell">{{ form_label(form.price) }}</div><div class="cell">{{ form_widget(form.price) }}€</div></div>
+    {{ form_widget(form) }}
+    <div class="row"><div class="cell"></div><div class="cell"> <button class="btn">{{ button_label|default('Enregistrer') }}</button></div></div>
+</div>
+{{ form_end(form) }}

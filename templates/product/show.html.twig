@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail du produit{% endblock %}
+{% block body_title %}Détail du produit{% endblock %}
+
+
+{% block body %}
+    <div class="table" style="display: table;width: 80%;">
+        <div class="row"><div class="bold cell">Id</div><div class="cell">{{(product.id) }}</div></div>
+        <div class="row"><div class="bold cell">Nom</div><div class="cell">{{(product.name) }}</div></div>
+        <div class="row"><div class="bold cell">Référence</div><div class="cell">{{(product.reference) }}</div></div>
+        <div class="row"><div class="bold cell">Description</div><div class="cell">{{(product.description) }}</div></div>
+        <div class="row"><div class="bold cell">Prix</div><div class="cell">{{(product.description) }}&nbsp€</div></div>
+    </div>
+
+    <a href="{{ path('ctrl_product_edit', {'id': product.id}) }}"><span class="btn">Modifier</span></a>
+    {{ include('product/_part_delete_form.html.twig') }}
+{% endblock %}

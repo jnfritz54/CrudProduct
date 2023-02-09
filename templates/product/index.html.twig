@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des produits{% endblock %}
+{% block body_title %}Liste des produits{% endblock %}
+{% block searchOrReturn %} {{ render(controller('App\\Controller\\ProductController::search')) }} {% endblock %}
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Référence</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.reference }}</td>
+                <td>{{ product.description|u.truncate(120, '...') }}</td>
+                <td>{{ product.price }} €</td>
+                <td>
+                    <a href="{{ path('ctrl_product_show', {'id': product.id}) }}"><span class="btn">Voir</span></a>
+                    <a href="{{ path('ctrl_product_edit', {'id': product.id}) }}"><span class="btn">Modifier</span></a>
+                    {{ include('product/_part_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('ctrl_product_new') }}"><span class="btn">Ajouter un produit</span></a>
+{% endblock %}
